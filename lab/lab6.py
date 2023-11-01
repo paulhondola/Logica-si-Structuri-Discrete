@@ -105,6 +105,11 @@ afisare_multime({1, 2, 3, 4, 5})
 Suma elementelor unei multimi
 """
 
+def suma_multime(mul):
+    return functools.reduce(lambda a, b: a + b, mul, 0)
+
+print(suma_multime({1, 2, 3, 4, 5}))
+
 # TODO: exercitiu impreuna
 
 """
@@ -115,6 +120,14 @@ Input: {1,2,3}; Output: {1,2,3}
 
 # TODO: exercitiu
 
+import sys
+def print_multime(mul):
+    print("{", end = '')
+    functools.reduce(lambda acc, item: print(f"{item},", end = ' '), mul, None)
+    sys.stdout.write('\b\b')
+    print("}")
+
+print_multime({1, 2, 3, 4, 5})
 
 """
 2. Scrieți o funcție care ia o listă de perechi (de tip precizat) și returnează mulțimea elementelor de pe prima poziție din 
@@ -125,6 +138,16 @@ Input: [(1,2), (3,4)]; Output: {1,3}
 
 # TODO: exercitiu
 
+lst_perechi = [(1,2), (3,4)]
+
+def make_mul(lst):
+    if len(lst) == 0:
+        return set()
+    else:
+        return {lst[0][0]} | make_mul(lst[1:])
+    
+print(make_mul(lst_perechi))
+
 """
 3. Implementați funcția standard filter care ia ca parametri o funcție booleană f și o mulțime s și returnează mulțimea
 elementelor din s care satisfac funcția f.
@@ -133,5 +156,11 @@ Input: lambda x: x % 2 == 0, {1, 2, 3, 4}; Output: {2, 4}
 """
 
 # TODO: exercitiu
+
+
+def standard_filter(mul, condition):
+    return functools.reduce(lambda acc, elem: acc | {elem} if condition(elem) else acc, mul, set())
+
+print(standard_filter({1, 2, 3, 4, 5}, lambda x: x % 2 == 0))
 
 # TODO: TEMA EX 4,5,6
