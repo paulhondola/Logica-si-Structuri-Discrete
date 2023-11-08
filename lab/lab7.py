@@ -23,7 +23,7 @@ dictionar_capitale['Bucuresti'] = 'RO'  # schimbarea valorii asociate unei chei
 print(dictionar_capitale)
 
 """
-Cheia trebuie să fie de un tip imutabil (de exemplu, nu poate sa fie o lista)
+Cheia trebuie să fie de un tip imuabil (de exemplu, nu poate sa fie o lista)
 """
 # dictionar_capitale[['a']] = 'b' # "TypeError: unhashable type: 'list'"
 
@@ -53,7 +53,7 @@ print(elev_nota.items())  # dict_items([('Alex', 10), ('Mihai', 9), ('Ioana', 10
 
 # Varianta1
 def functie_suma(acc, elev):
-    nume, nota = elev  # despachetam fiecare tuplu primit ca parametru (exemplu: ('Alex', 10))
+    _, nota = elev  # despachetam fiecare tuplu primit ca parametru (exemplu: ('Alex', 10))
     return acc + nota
 
 
@@ -98,6 +98,20 @@ fiecare șir e asociat cu suma tuturor valorilor cu care e asociat în listă.
 
 Input: [('a', 7), ('b', 5), ('c', 2), ('a', 3), ('b', 3)]; Output: {'a': 10, 'b': 8, 'c': 2}
 """
+def adauga_in_dictionar(new_dict, pair):
+    key, value = pair
+    if key in new_dict.keys():
+        new_dict[key] += value
+    else:
+        new_dict[key] = value
+    
+    return new_dict
+    
+
+def dict_perechi(lst):
+    return functools.reduce(adauga_in_dictionar, lst, dict())
+
+print("EX1 -->", dict_perechi([('a', 7), ('b', 5), ('c', 2), ('a', 3), ('b', 3)]))
 
 # TODO: clasa
 
@@ -107,6 +121,24 @@ numărul aparițiilor din listă.
 
 Input: ["aaa", "bbb", "aabbb"]; Output: {'a': 5, 'b': 6}
 """
+
+def add_to_dict(new_dict, letter):
+    
+    if letter in new_dict.keys():
+        new_dict[letter] += 1
+    else:
+        new_dict[letter] = 1
+    
+    return new_dict
+    
+def concat_strings(lst):
+    return functools.reduce(lambda acc, item: acc + item, lst, '')
+
+def create_dict(lst):
+    return functools.reduce(add_to_dict, concat_strings(lst), dict())
+
+print(create_dict(["aaa", "bbb", "aabbb"]))
+
 
 # TODO: exercitiu
 
@@ -118,6 +150,20 @@ dat care satisfac o funcție dată.
 Input: dict: {'a': 5, 'b': 7, 'c': 1}; conditie: valoare >= 5; Output: {'a': 5, 'b': 7}
 """
 
+def add_to_dict(new_dict, pair):
+    key, value = pair
+    
+    if key in new_dict.keys():
+        new_dict[key] += value
+    else:
+        new_dict[key] = value
+        
+    return new_dict
+
+def filter_dict(my_dict, condition):
+    return functools.reduce(lambda acc, item: add_to_dict(acc, item) if condition(item[1]) else acc, my_dict.items(), dict())
+    
+print(filter_dict({'a': 5, 'b': 7, 'c': 1}, lambda x: x >= 5))
 # TODO: exercitiu
 
 
