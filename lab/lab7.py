@@ -23,7 +23,7 @@ dictionar_capitale['Bucuresti'] = 'RO'  # schimbarea valorii asociate unei chei
 print(dictionar_capitale)
 
 """
-Cheia trebuie să fie de un tip imuabil (de exemplu, nu poate sa fie o lista)
+Cheia trebuie să fie de un tip imutabil (de exemplu, nu poate sa fie o lista)
 """
 # dictionar_capitale[['a']] = 'b' # "TypeError: unhashable type: 'list'"
 
