@@ -85,8 +85,8 @@ def SRD(arbore):
         print(arbore[key], end = ', ')
         SRD(arbore[child][1:])
  
-print('Arbore oarecare:', end = ' ')       
-SRD(node1)
+#print('Arbore oarecare:', end = ' ')       
+#SRD(node1)
 
 '''
 4. Tipărire indentată Scrieți o funcție care afișează un arbore binar de întregi în preordine, câte un nod pe linie, precedând valoarea din nod cu un număr de spații egal cu dublul adâncimii la care se află (câte două spații pentru fiecare nivel).
@@ -109,7 +109,7 @@ def RSD(arbore, level = 0):
         RSD(arbore[stanga], level + 1)
         RSD(arbore[dreapta], level + 1)
         
-#RSD(radacina)
+RSD(radacina)
         
 '''
 5. Eliminarea unui nod Scrieți o funcție care ia ca parametru o valoare și un arbore binar de căutare și returnează arborele din care valoarea a fost eliminată (dacă exista).
