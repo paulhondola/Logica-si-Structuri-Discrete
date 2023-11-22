@@ -30,7 +30,7 @@ def list_single_child_node(arbore):
         return []
     
     # un singur fiu
-    if arbore[stanga] is not None and arbore[dreapta] is None:
+    if (arbore[stanga] is not None and arbore[dreapta] is None) or (arbore[stanga] is None and arbore[dreapta] is not None):
         return [arbore[cheie]] + list_single_child_node(arbore[stanga]) + list_single_child_node(arbore[dreapta])
 
     # doi fii
@@ -81,6 +81,7 @@ node1 = {key: 1, child: [node2, node3]}
 
 def SRD(arbore):
     if arbore is not None:
+        # functie externa care parcurge lista
         SRD(arbore[child][0])
         print(arbore[key], end = ', ')
         SRD(arbore[child][1:])
@@ -98,13 +99,12 @@ def spaces(num):
     if num == 0:
         print('', end = '')
     else:
-        print()
         spaces(num - 1)
     
 
-def RSD(arbore, level = 0):
+def RSD(arbore, level = 1):
     if arbore is not None:
-        print(arbore[cheie], level)
+        print(arbore[cheie])
         spaces(level)
         RSD(arbore[stanga], level + 1)
         RSD(arbore[dreapta], level + 1)
