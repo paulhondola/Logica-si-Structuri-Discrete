@@ -102,25 +102,8 @@ lst = [6, 5, 8, 1, 7, 10, 2, 9, 3, 4]
 # generate binary tree from lst
 
 def generate_binary_tree(lst):
-    tree = {key: lst[0], left: None, right: None}
     
-    for i in range(1, len(lst)):
-        current_node = tree
-        while True:
-            if current_node[key] > lst[i]:
-                if current_node[left] is None:
-                    current_node[left] = {key: lst[i], left: None, right: None}
-                    break
-                else:
-                    current_node = current_node[left]
-            else:
-                if current_node[right] is None:
-                    current_node[right] = {key: lst[i], left: None, right: None}
-                    break
-                else:
-                    current_node = current_node[right]
-    
-    return tree
+        }
 
 def SRD(tree):
     if tree is not None:
