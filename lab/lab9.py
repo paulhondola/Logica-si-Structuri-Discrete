@@ -21,8 +21,12 @@ def unique_letters(lst):
         
     return include_letters_in_set(lst[0]) | unique_letters(lst[1:])
 
+def unique_2(lst):
+    return functools.reduce(lambda acc, item: acc | set(item), lst, set())
+
 print("Lista de caractere:", unique_letters(['apple', 'banana', 'cherry']))
 
+print("Lista de caractere 2:", unique_2(['apple', 'banana', 'cherry']))
 
 # set ('ana') = {'a', 'n'}
 """
@@ -95,22 +99,3 @@ print('Max ->', max_binary_tree(node1))
  
  
 #########################################################################################################
-
-lst = [6, 5, 8, 1, 7, 10, 2, 9, 3, 4]
-
-
-# generate binary tree from lst
-
-def generate_binary_tree(lst):
-    
-        }
-
-def SRD(tree):
-    if tree is not None:
-        SRD(tree[left])
-        print(tree[key], end = ', ')
-        SRD(tree[right])
-    
-    
-print(SRD(generate_binary_tree(lst)))
-        

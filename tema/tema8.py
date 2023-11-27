@@ -31,7 +31,7 @@ def list_single_child_node(arbore):
     
     # un singur fiu
     if (arbore[stanga] is not None and arbore[dreapta] is None) or (arbore[stanga] is None and arbore[dreapta] is not None):
-        return [arbore[cheie]] + list_single_child_node(arbore[stanga]) + list_single_child_node(arbore[dreapta])
+        return list_single_child_node(arbore[stanga]) + [arbore[cheie]] + list_single_child_node(arbore[dreapta])
 
     # doi fii
     if arbore[stanga] is not None and arbore[dreapta] is not None:
