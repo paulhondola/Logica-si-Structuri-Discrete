@@ -27,6 +27,16 @@ def my_map(my_dict, f):
 
 print(my_map({'a': 5, 'b': 7, 'c': 6}, lambda x: x + 1))
 
+def add_to_dict(new_dict, pair, f):
+    key, value = pair
+    
+    if key in new_dict.keys():
+        new_dict[key] += f(value)
+    else:
+        new_dict[key] = f(value)
+        
+    return new_dict
+
 '''
 6. Scrieți o funcție care primește un dicționar de la șiruri la întregi și o listă de șiruri și returnează mulțimea tuturor valorilor din dicționar care corespund șirurilor din listă.
 
