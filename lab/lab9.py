@@ -1,5 +1,10 @@
 import functools
 
+a = (1, 2, 3)
+b = (4, 5, 6)
+
+print(a.update(b))
+
 """
 MULTIMI
 Scrieți o funcție care primește o listă de șiruri de caractere și returnează o mulțime conținând literele unice din toate șirurile.
