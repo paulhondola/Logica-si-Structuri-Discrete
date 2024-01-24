@@ -42,7 +42,7 @@ afisare_inordine(radacina)  # ce se intampla daca print(f"Afisare inordine: {afi
 
 print('\n\n')
 
-#TODO: Afisare preordine si postordine
+#TODO : Afisare preordine si postordine
 
 
 def afisare_preordine(arbore): # RSD
@@ -120,7 +120,7 @@ print("Frunzele arborelui sunt:", frunze(radacina))
 Scrieti o functie care primeste ca parametru un arbore si o functie conditie si returneaza multimea tuturor nodurilor care
 respecta conditia data.
 """
-# TODO: exercitiu
+# TODO : exercitiu
 
 def filter_arbore(arbore, conditie):
     if arbore is None:
@@ -135,4 +135,4 @@ def filter_arbore(arbore, conditie):
 print("Arborele filtrat:", filter_arbore(radacina, lambda x: x % 2))
 
 
-# TODO: TEMA ex 1, 2, 4
+# TODO : TEMA ex 1, 2, 4
