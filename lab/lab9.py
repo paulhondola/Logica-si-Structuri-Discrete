@@ -3,7 +3,7 @@ import functools
 a = (1, 2, 3)
 b = (4, 5, 6)
 
-print(a.update(b))
+#print(a.update(b))
 
 """
 MULTIMI
@@ -61,7 +61,12 @@ def max_func_value(my_dict, function):
     return max(functools.reduce(lambda acc, item: acc | {function(item)}, my_dict.items(), set()))
 
 
+def max_func_value_2(my_dict, function):
+    return max(map(function, my_dict.items()))
+
+
 print('Max -> mapped dict',max_func_value(my_dict, random_func))
+print('Max -> mapped dict',max_func_value_2(my_dict, random_func))
 
 """
 ARBORI
